@@ -1,37 +1,25 @@
-
 package Visual;
 
+import Datos.UserAndPass;
 import java.awt.BorderLayout;
-
+import javax.swing.JPanel;
 
 public class Principal extends javax.swing.JFrame {
 
-    
     public Principal() {
         initComponents();
-        VistaTarea p2 = new VistaTarea();
-        p2.setSize(660,400);
-        p2.setLocation(0,0);
-        
-        PanelPrincipal.removeAll();
-        PanelPrincipal.add(p2,BorderLayout.CENTER);
-        PanelPrincipal.revalidate();
-        PanelPrincipal.repaint();
-        
-        
-        
-        
-        
+        int indice = Ingreso.getIndice();
+        txtBienvenido.setText("Bienvenido " + UserAndPass.Libro.get(indice).getNombre()
+                + " " + UserAndPass.Libro.get(indice).getApellido());
     }
-
-    
-    @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         btnNuevaTarea = new javax.swing.JButton();
-        btnVistaTarea = new javax.swing.JButton();
+        btnTareasPendientes = new javax.swing.JButton();
         PanelPrincipal = new javax.swing.JPanel();
+        btnTareasCompletas = new javax.swing.JButton();
+        txtBienvenido = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -42,10 +30,10 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
-        btnVistaTarea.setText("Vista Tarea");
-        btnVistaTarea.addActionListener(new java.awt.event.ActionListener() {
+        btnTareasPendientes.setText("Tareas Pendientes");
+        btnTareasPendientes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnVistaTareaActionPerformed(evt);
+                btnTareasPendientesActionPerformed(evt);
             }
         });
 
@@ -53,12 +41,19 @@ public class Principal extends javax.swing.JFrame {
         PanelPrincipal.setLayout(PanelPrincipalLayout);
         PanelPrincipalLayout.setHorizontalGroup(
             PanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 661, Short.MAX_VALUE)
+            .addGap(0, 666, Short.MAX_VALUE)
         );
         PanelPrincipalLayout.setVerticalGroup(
             PanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 399, Short.MAX_VALUE)
+            .addGap(0, 409, Short.MAX_VALUE)
         );
+
+        btnTareasCompletas.setText("Tareas Completas");
+        btnTareasCompletas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTareasCompletasActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -71,8 +66,12 @@ public class Principal extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnNuevaTarea)
                         .addGap(18, 18, 18)
-                        .addComponent(btnVistaTarea)))
-                .addContainerGap(33, Short.MAX_VALUE))
+                        .addComponent(btnTareasPendientes)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnTareasCompletas)
+                        .addGap(61, 61, 61)
+                        .addComponent(txtBienvenido, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -80,66 +79,44 @@ public class Principal extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnNuevaTarea)
-                    .addComponent(btnVistaTarea))
+                    .addComponent(btnTareasPendientes)
+                    .addComponent(btnTareasCompletas)
+                    .addComponent(txtBienvenido, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(PanelPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addGap(24, 24, 24))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnNuevaTareaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevaTareaActionPerformed
-        
-        NuevaTarea p1 = new NuevaTarea();
-        p1.setSize(660,400);
-        p1.setLocation(0,0);
-        
-        PanelPrincipal.removeAll();
-        PanelPrincipal.add(p1,BorderLayout.CENTER);
-        PanelPrincipal.revalidate();
-        PanelPrincipal.repaint();
+        NuevaTarea nuevaTarea = new NuevaTarea();
+        ShowPanel(nuevaTarea);
     }//GEN-LAST:event_btnNuevaTareaActionPerformed
 
-    private void btnVistaTareaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVistaTareaActionPerformed
-        VistaTarea p2 = new VistaTarea();
-        p2.setSize(660,400);
-        p2.setLocation(0,0);
-        
+    private void btnTareasPendientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTareasPendientesActionPerformed
+        TareasPendientes tareasPendientes = new TareasPendientes();
+        ShowPanel(tareasPendientes);
+    }//GEN-LAST:event_btnTareasPendientesActionPerformed
+
+    private void btnTareasCompletasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTareasCompletasActionPerformed
+        TareasCompletas tareasCompletas = new TareasCompletas();
+        ShowPanel(tareasCompletas);
+    }//GEN-LAST:event_btnTareasCompletasActionPerformed
+
+    private void ShowPanel(JPanel p) {
+        //raul. Metodo para mostrar paneles ------------
+        p.setSize(1000, 1000);
+        p.setLocation(0, 0);
         PanelPrincipal.removeAll();
-        PanelPrincipal.add(p2,BorderLayout.CENTER);
+        PanelPrincipal.add(p, BorderLayout.CENTER);
         PanelPrincipal.revalidate();
         PanelPrincipal.repaint();
-    }//GEN-LAST:event_btnVistaTareaActionPerformed
+    }
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
 
-        /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Principal().setVisible(true);
@@ -150,6 +127,8 @@ public class Principal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PanelPrincipal;
     private javax.swing.JButton btnNuevaTarea;
-    private javax.swing.JButton btnVistaTarea;
+    private javax.swing.JButton btnTareasCompletas;
+    private javax.swing.JButton btnTareasPendientes;
+    private javax.swing.JLabel txtBienvenido;
     // End of variables declaration//GEN-END:variables
 }

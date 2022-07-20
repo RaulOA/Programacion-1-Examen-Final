@@ -30,10 +30,14 @@
                   <Group type="102" attributes="0">
                       <Component id="btnNuevaTarea" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="btnVistaTarea" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnTareasPendientes" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="btnTareasCompletas" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
+                      <Component id="txtBienvenido" min="-2" pref="194" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="33" max="32767" attributes="0"/>
+              <EmptySpace pref="28" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -43,11 +47,13 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="btnNuevaTarea" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnVistaTarea" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnTareasPendientes" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnTareasCompletas" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtBienvenido" alignment="1" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="PanelPrincipal" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="34" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -61,12 +67,12 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnNuevaTareaActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btnVistaTarea">
+    <Component class="javax.swing.JButton" name="btnTareasPendientes">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Vista Tarea"/>
+        <Property name="text" type="java.lang.String" value="Tareas Pendientes"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnVistaTareaActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTareasPendientesActionPerformed"/>
       </Events>
     </Component>
     <Container class="javax.swing.JPanel" name="PanelPrincipal">
@@ -74,15 +80,25 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="661" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="666" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="399" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="409" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
       </Layout>
     </Container>
+    <Component class="javax.swing.JButton" name="btnTareasCompletas">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Tareas Completas"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTareasCompletasActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="txtBienvenido">
+    </Component>
   </SubComponents>
 </Form>

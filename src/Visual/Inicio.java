@@ -1,11 +1,18 @@
 package Visual;
 
+import Datos.Personas;
+import Datos.UserAndPass;
+
 public class Inicio extends javax.swing.JFrame {
 
     public Inicio() {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setResizable(false);
+        
+        Personas personaPrueba = new Personas("admin", "admin", "admin", "admin");
+        UserAndPass.Libro.add(personaPrueba);
+        
     }
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {

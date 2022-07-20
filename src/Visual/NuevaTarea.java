@@ -1,7 +1,6 @@
 package Visual;
 
 import Datos.UserAndPass;
-import javax.swing.JOptionPane;
 
 public class NuevaTarea extends javax.swing.JPanel {
 
@@ -16,7 +15,7 @@ public class NuevaTarea extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         spMes = new javax.swing.JSpinner();
-        jSpinner2 = new javax.swing.JSpinner();
+        spDia = new javax.swing.JSpinner();
         jLabel3 = new javax.swing.JLabel();
         spYear = new javax.swing.JSpinner();
         jLabel4 = new javax.swing.JLabel();
@@ -31,7 +30,7 @@ public class NuevaTarea extends javax.swing.JPanel {
 
         spMes.setModel(new javax.swing.SpinnerNumberModel(1, 1, 12, 1));
 
-        jSpinner2.setModel(new javax.swing.SpinnerNumberModel(1, 1, 30, 1));
+        spDia.setModel(new javax.swing.SpinnerNumberModel(1, 1, 30, 1));
 
         jLabel3.setText("/");
 
@@ -71,7 +70,7 @@ public class NuevaTarea extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jSpinner2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(spDia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -86,7 +85,7 @@ public class NuevaTarea extends javax.swing.JPanel {
                     .addComponent(jLabel1)
                     .addComponent(jLabel2)
                     .addComponent(spMes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSpinner2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(spDia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3)
                     .addComponent(spYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
@@ -104,18 +103,14 @@ public class NuevaTarea extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        int indice = Ingreso.getIndice();
+        String stringTarea = spMes.getValue().toString() + "/"
+                + spDia.getValue().toString() + "/"
+                + spYear.getValue().toString() + "+"
+                + txtNombreTarea.getText() + "+"
+                + txtEncargadoTarea.getText();
+        
 
-        String[] q = new String[3];
-        q[0] = "Fecha";
-        q[1] = txtNombreTarea.getText();
-        q[2] = txtEncargadoTarea.getText();
-
-        UserAndPass.Libro.get(indice).setTareasPendientes(q);
-
-        JOptionPane.showMessageDialog(null, UserAndPass.Libro.get(indice).getTareasPendientes());
     }//GEN-LAST:event_jButton1ActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
@@ -124,7 +119,7 @@ public class NuevaTarea extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JSpinner jSpinner2;
+    private javax.swing.JSpinner spDia;
     private javax.swing.JSpinner spMes;
     private javax.swing.JSpinner spYear;
     private javax.swing.JTextField txtEncargadoTarea;
