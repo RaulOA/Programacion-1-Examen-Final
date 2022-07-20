@@ -33,7 +33,7 @@
                       <Component id="btnVistaTarea" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="28" max="32767" attributes="0"/>
+              <EmptySpace pref="33" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -47,7 +47,7 @@
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="PanelPrincipal" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="24" max="32767" attributes="0"/>
+              <EmptySpace pref="34" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -65,18 +65,21 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Vista Tarea"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnVistaTareaActionPerformed"/>
+      </Events>
     </Component>
     <Container class="javax.swing.JPanel" name="PanelPrincipal">
 
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="666" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="661" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="409" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="399" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
       </Layout>

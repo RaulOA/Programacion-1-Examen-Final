@@ -111,9 +111,9 @@ public class NuevaTarea extends javax.swing.JPanel {
         q[1] = txtNombreTarea.getText();
         q[2] = txtEncargadoTarea.getText();
 
-        UserAndPass.Libro.get(indice).setTareas(q);
+        UserAndPass.Libro.get(indice).setTareasPendientes(q);
 
-        JOptionPane.showMessageDialog(null, UserAndPass.Libro.get(indice).getTareas());
+        JOptionPane.showMessageDialog(null, UserAndPass.Libro.get(indice).getTareasPendientes());
     }//GEN-LAST:event_jButton1ActionPerformed
 
 
