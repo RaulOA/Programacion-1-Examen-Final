@@ -2,6 +2,7 @@ package Visual;
 
 import Datos.Personas;
 import Datos.UserAndPass;
+import Datos.VariablesImportantes;
 
 public class Inicio extends javax.swing.JFrame {
 
@@ -9,10 +10,14 @@ public class Inicio extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setResizable(false);
-        
-        Personas personaPrueba = new Personas("admin", "admin", "admin", "admin");
-        UserAndPass.Libro.add(personaPrueba);
-        
+
+        if (VariablesImportantes.getContadorStandar() == 1) {
+            Personas personaPrueba = new Personas("admin", "admin", "admin", "admin");
+            UserAndPass.Libro.add(personaPrueba);
+            VariablesImportantes.setContadorStandar(0);
+
+        }
+
     }
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {

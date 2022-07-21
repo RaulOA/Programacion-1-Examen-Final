@@ -1,6 +1,7 @@
 package Visual;
 
 import Datos.UserAndPass;
+import Datos.VariablesImportantes;
 import java.awt.BorderLayout;
 import javax.swing.JPanel;
 
@@ -8,9 +9,9 @@ public class Principal extends javax.swing.JFrame {
 
     public Principal() {
         initComponents();
-        int indice = Ingreso.getIndice();
-        txtBienvenido.setText("Bienvenido " + UserAndPass.Libro.get(indice).getNombre()
-                + " " + UserAndPass.Libro.get(indice).getApellido());
+        txtBienvenido.setText("Bienvenido " + UserAndPass.Libro.get(VariablesImportantes.getIndice()).getNombre()
+                + " " + UserAndPass.Libro.get(VariablesImportantes.getIndice()).getApellido());
+
     }
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -20,6 +21,8 @@ public class Principal extends javax.swing.JFrame {
         PanelPrincipal = new javax.swing.JPanel();
         btnTareasCompletas = new javax.swing.JButton();
         txtBienvenido = new javax.swing.JLabel();
+        btnCerrar = new javax.swing.JButton();
+        btnImprimir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -55,6 +58,20 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
+        btnCerrar.setText("Cerrar");
+        btnCerrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCerrarActionPerformed(evt);
+            }
+        });
+
+        btnImprimir.setText("Imprimir Datos");
+        btnImprimir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnImprimirActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -69,19 +86,26 @@ public class Principal extends javax.swing.JFrame {
                         .addComponent(btnTareasPendientes)
                         .addGap(18, 18, 18)
                         .addComponent(btnTareasCompletas)
-                        .addGap(61, 61, 61)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnCerrar)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnImprimir)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtBienvenido, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnNuevaTarea)
-                    .addComponent(btnTareasPendientes)
-                    .addComponent(btnTareasCompletas)
-                    .addComponent(txtBienvenido, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtBienvenido, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnNuevaTarea)
+                        .addComponent(btnTareasPendientes)
+                        .addComponent(btnTareasCompletas)
+                        .addComponent(btnCerrar)
+                        .addComponent(btnImprimir)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(PanelPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(24, 24, 24))
@@ -98,12 +122,32 @@ public class Principal extends javax.swing.JFrame {
     private void btnTareasPendientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTareasPendientesActionPerformed
         TareasPendientes tareasPendientes = new TareasPendientes();
         ShowPanel(tareasPendientes);
+        tareasPendientes.cargarDatos();
+
+
     }//GEN-LAST:event_btnTareasPendientesActionPerformed
 
     private void btnTareasCompletasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTareasCompletasActionPerformed
         TareasCompletas tareasCompletas = new TareasCompletas();
         ShowPanel(tareasCompletas);
+        tareasCompletas.cargarDatos();
     }//GEN-LAST:event_btnTareasCompletasActionPerformed
+
+    private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarActionPerformed
+        Inicio inicio = new Inicio();
+        inicio.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnCerrarActionPerformed
+
+    private void btnImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimirActionPerformed
+        System.out.println("Tamaño del Arreglo Principal: " + UserAndPass.Libro.size());
+        System.out.println("Indice Actual: " + VariablesImportantes.getIndice());
+        System.out.println("Nombre del Usuario Actual: " + UserAndPass.Libro.get(VariablesImportantes.getIndice()).getNombre() + " " + UserAndPass.Libro.get(VariablesImportantes.getIndice()).getApellido());
+        System.out.println("Tamaño de la Lista Actual de Completadas: " + UserAndPass.Libro.get(VariablesImportantes.getIndice()).getTareasPendientes().size());
+        System.out.println("Tareas Guardadas:");
+        UserAndPass.Libro.get(VariablesImportantes.getIndice()).getTareasPendientes().forEach(System.out::println);
+        System.out.println("------------------------------");
+    }//GEN-LAST:event_btnImprimirActionPerformed
 
     private void ShowPanel(JPanel p) {
         //raul. Metodo para mostrar paneles ------------
@@ -126,6 +170,8 @@ public class Principal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PanelPrincipal;
+    private javax.swing.JButton btnCerrar;
+    private javax.swing.JButton btnImprimir;
     private javax.swing.JButton btnNuevaTarea;
     private javax.swing.JButton btnTareasCompletas;
     private javax.swing.JButton btnTareasPendientes;

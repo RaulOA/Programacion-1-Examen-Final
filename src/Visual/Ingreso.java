@@ -1,15 +1,10 @@
 package Visual;
 
 import Datos.UserAndPass;
+import Datos.VariablesImportantes;
 import javax.swing.JOptionPane;
 
 public class Ingreso extends javax.swing.JFrame {
-
-    private static int indice;
-
-    public static int getIndice() {
-        return indice;
-    }
 
     public Ingreso() {
         initComponents();
@@ -99,7 +94,7 @@ public class Ingreso extends javax.swing.JFrame {
 
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
         int paso = 0;
-        
+
         if (!txtUsuario.getText().equals("") && !txtClave.getText().equals("")) {
 
             for (int i = 0; i < UserAndPass.Libro.size(); i++) {
@@ -108,11 +103,12 @@ public class Ingreso extends javax.swing.JFrame {
                         && txtClave.getText().equals(UserAndPass.Libro.get(i).getClave())) {
 
                     JOptionPane.showMessageDialog(null, "Ingresando al sistema");
-                    this.indice = i;
+                    VariablesImportantes.setIndice(i);
                     Principal principal = new Principal();
                     principal.setVisible(true);
                     paso = 1;
                     this.dispose();
+                    break;
                 }
             }
             if (paso != 1) {

@@ -126,18 +126,22 @@ public class Registro extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVolverActionPerformed
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
-        String usuario = txtUsuario.getText();
-        String clave = txtClave.getText();
-        String nombre = txtNombre.getText();
-        String apellido = txtApellidos.getText();
-        Personas x = new Personas(usuario, clave, nombre, apellido);
-        UserAndPass.Libro.add(x);
-        JOptionPane.showMessageDialog(null, "Registro Correcto");
-        txtUsuario.setText(null);
-        txtClave.setText(null);
-        txtNombre.setText(null);
-        txtApellidos.setText(null);
-        
+        if (!txtUsuario.getText().equals("") && !txtClave.getText().equals("") && !txtNombre.getText().equals("") && !txtApellidos.getText().equals("")) {
+            String usuario = txtUsuario.getText();
+            String clave = txtClave.getText();
+            String nombre = txtNombre.getText();
+            String apellido = txtApellidos.getText();
+            Personas x = new Personas(usuario, clave, nombre, apellido);
+            UserAndPass.Libro.add(x);
+            JOptionPane.showMessageDialog(null, "Registro Correcto");
+            txtUsuario.setText(null);
+            txtClave.setText(null);
+            txtNombre.setText(null);
+            txtApellidos.setText(null);
+        } else {
+            JOptionPane.showMessageDialog(null, "Faltan Campos");
+        }
+
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
     public static void main(String args[]) {
