@@ -38,6 +38,7 @@ public class TareasPendientes extends javax.swing.JPanel {
         TablaPendientes = new javax.swing.JTable();
         btnCompletar = new javax.swing.JButton();
 
+        TablaPendientes.setFont(new java.awt.Font("Ebrima", 0, 15)); // NOI18N
         TablaPendientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -48,6 +49,7 @@ public class TareasPendientes extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(TablaPendientes);
 
+        btnCompletar.setFont(new java.awt.Font("Ebrima", 0, 18)); // NOI18N
         btnCompletar.setText("Completar");
         btnCompletar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -63,17 +65,17 @@ public class TareasPendientes extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnCompletar)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(265, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 575, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 334, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnCompletar)
-                .addContainerGap(195, Short.MAX_VALUE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
